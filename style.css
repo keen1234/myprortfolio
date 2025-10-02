@@ -14,13 +14,8 @@ body {
 
 canvas {
     display: block;
-    position: absolute; /* Changed to absolute so it doesn't follow scroll */
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 0;
-    pointer-events: none;
 }
 
 .center-text {
@@ -113,7 +108,6 @@ html {
 
 /* Canvas as background */
 #waveCanvas {
-    position: absolute; /* Changed to absolute so it doesn't follow scroll */
     top: 0;
     left: 0;
     width: 100vw;
