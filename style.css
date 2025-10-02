@@ -1,0 +1,136 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #000;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: auto;
+    overflow-y: auto;
+}
+
+canvas {
+    display: block;
+    position: absolute; /* Changed to absolute so it doesn't follow scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 40px 20px;
+  box-sizing: border-box;
+  padding-top: 80px; /* Added padding top to prevent content hiding behind navbar */
+}
+
+.home-section {
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.about-section {
+  background: #f7f7f7;
+}
+
+.projects-section {
+  background: #e3e3e3;
+}
+
+.contact-section {
+  background: #f7f7f7;
+}
+
+.section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.section p, .section ul {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 700px;
+  text-align: center;
+}
+
+.section ul {
+  list-style: disc inside;
+  padding: 0;
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(34, 34, 34, 0.95);
+    padding: 14px 28px;
+    color: white;
+    position: fixed; /* Changed from sticky to fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1002; /* Ensure always above canvas and content */
+    backdrop-filter: none;
+    transition: backdrop-filter 0.3s, background 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.navbar.blurred {
+    backdrop-filter: blur(8px);
+    background: rgba(34, 34, 34, 0.7);
+}
+
+/* Canvas as background */
+#waveCanvas {
+    position: absolute; /* Changed to absolute so it doesn't follow scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 10px 30px 10px;
+  }
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  .section p, .section ul {
+    font-size: 1rem;
+  }
+}
