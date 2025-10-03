@@ -1,4 +1,4 @@
-body, html {
+html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -8,8 +8,11 @@ body, html {
 }
 
 body {
-    height: auto;
-    overflow-y: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: Arial, sans-serif;
+    background: #000;
+    /* Remove any height restrictions that might interfere with sticky */
 }
 
 canvas {
@@ -23,28 +26,63 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2.5rem;
-  color: #ffffff;
   text-align: center;
   z-index: 1;
   pointer-events: none;
   width: 100%;
+  max-width: 800px;
 }
 
-html {
-  scroll-behavior: smooth;
+.greeting {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  background: linear-gradient(135deg, #00fffc, #22d3ee, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1s ease-out;
+  line-height: 1.2;
 }
+
+.welcome-text {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin: 0 auto;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00fffc, #22d3ee, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1s ease-out 0.3s both;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 .section {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px 40px 20px;
+  padding: 80px 20px 20px 20px; /* Add top padding to account for sticky navbar */
   box-sizing: border-box;
-  padding-top: 80px; /* Added padding top to prevent content hiding behind navbar */
+  position: relative; /* Ensure proper positioning context */
 }
 
 .home-section {
@@ -108,23 +146,230 @@ html {
 
 /* Canvas as background */
 #waveCanvas {
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 0;
     pointer-events: none;
     display: block;
 }
 
+/* Page Transition Styles */
+.page-transition {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Page Content Styles */
+.page-content {
+  min-height: 100vh;
+  padding: 100px 20px 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: slideInContent 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideInContent {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #00f5ff, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* About Page Styles */
+.about-page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-text {
+  max-width: 800px;
+  text-align: center;
+}
+
+.about-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.skills-section {
+  margin-top: 3rem;
+}
+
+.skills-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Projects Page Styles */
+.projects-page {
+  background: linear-gradient(135deg, #2c3e50 0%, #4a6741 100%);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-header h3 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.project-status {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.project-status {
+  background: #4CAF50;
+  color: white;
+}
+
+.project-status.future {
+  background: #FF9800;
+  color: white;
+}
+
+.project-card p {
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: rgba(0, 188, 212, 0.2);
+  color: #00bcd4;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+.coming-soon {
+  opacity: 0.8;
+  border-style: dashed;
+}
+
+/* Active Navigation Link */
+.nav-links a.active {
+  color: #00bcd4;
+  background: rgba(0, 188, 212, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
 @media (max-width: 768px) {
-  .section {
-    padding: 80px 10px 30px 10px;
+  .page-content {
+    padding: 80px 15px 30px 15px;
   }
-  .section h2 {
-    font-size: 1.5rem;
+  
+  .page-title {
+    font-size: 2rem;
   }
-  .section p, .section ul {
+  
+  .about-text p {
     font-size: 1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-grid {
+    justify-content: center;
   }
 }

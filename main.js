@@ -32,6 +32,12 @@ function updateFPS(now) {
         fps = frameCount;
         frameCount = 0;
         lastFpsUpdate = now;
+        
+        // Update FPS counter in navbar
+        const fpsCounter = document.getElementById('fps-counter');
+        if (fpsCounter) {
+            fpsCounter.textContent = `FPS: ${fps}`;
+        }
     }
 }
 
@@ -92,7 +98,15 @@ function draw(now) {
     updateFPS(now);
 
     ctx.clearRect(0, 0, width, height);
-    ctx.strokeStyle = "rgba(255,255,255,0.7)";
+    
+    // Create gradient for the wave lines
+    const gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, "rgba(34, 34, 34, 0.8)"); // Dark gray
+    gradient.addColorStop(0.3, "rgb(106, 106, 106)"); // Light gray
+    gradient.addColorStop(0.6, "rgb(106, 106, 106)"); // Light gray
+    gradient.addColorStop(1, "rgba(34, 34, 34, 0.8)"); // Dark gray
+    
+    ctx.strokeStyle = gradient;
     ctx.lineWidth = 1;
 
     for (let y = 0; y <= rows; y++) {

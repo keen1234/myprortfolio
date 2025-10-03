@@ -6,50 +6,96 @@
     <title>Kenth</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="timeline.css">
+    <link rel="stylesheet" href="carousel.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body>
 <nav class="navbar">
     <div class="logo">Kenth</div>
     <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#timeline">About</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        
     </ul>
-    <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="navbar-right">
+        <div class="fps-counter" id="fps-counter">FPS: 60</div>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
+    <div class="active-element" id="active-element"></div>
 </nav>
 <section id="home" class="section home-section">
     <canvas id="waveCanvas"></canvas>
-  <div class="center-text">Welcome to My Portfolio</div>
+    <div class="center-text">
+        <h1 class="greeting">Hi, I'm Alejo Kenth Cabanero</h1>
+        <p class="welcome-text">Welcome to My Portfolio</p>
+    </div>
 </section>
 
-<section id="about" class="section about-section">
-  <h2>About Me</h2>
-  <p>Hello! I'm Alejo Ke, a passionate developer and designer. I love building interactive and visually appealing web experiences. My skills include JavaScript, CSS, and modern web frameworks. I enjoy learning new technologies and taking on creative challenges.</p>
+<section id="timeline" class="section timeline-section">
+    <div class="timeline-container">
+        <div class="timeline-header">
+            <h2 class="timeline-title">My Journey</h2>
+            <p class="timeline-subtitle">Scroll to explore the milestones</p>
+        </div>
+        
+        <div class="timeline-wrapper">
+            <div class="timeline-line"></div>
+            <div class="timeline-progress"></div>
+            <div class="timeline-glow"></div>
+            
+            <div class="timeline-events" id="timeline-events">
+                <!-- Timeline events will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
 </section>
+
 
 <section id="projects" class="section projects-section">
-  <h2>Projects</h2>
-  <ul>
-    <li>Portfolio Website</li>
-    <li>Animated Wave Canvas</li>
-    <li>Responsive Navbar</li>
-    <li>More coming soon...</li>
-  </ul>
-</section>
-
-<section id="contact" class="section contact-section">
-  <h2>Contact</h2>
-  <p>Email: alejo@example.com</p>
-  <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/alejoke</a></p>
+    <div class="content-container">
+        <div class="carousel-header">
+            <h1 class="carousel-title">My Projects</h1>
+            <h2 class="carousel-subtitle">Works</h2>
+            <p class="carousel-tagline">Explore my latest projects showcasing modern web development techniques and creative solutions.</p>
+        </div>
+        
+        <div class="threed-carousel-container">
+            <div class="carousel-wrapper" id="carousel-wrapper">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- Carousel items will be populated by JavaScript -->
+                </div>
+                
+                <!-- Navigation Arrows (Desktop) -->
+                <button class="carousel-nav prev-btn" id="prev-btn" aria-label="Previous">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <button class="carousel-nav next-btn" id="next-btn" aria-label="Next">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+                
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators" id="carousel-indicators">
+                    <!-- Indicators will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script type="module" src="/main.js"></script>
 <script src="/navbar.js"></script>
+<script src="/lightning-navbar.js"></script>
+<script src="/timeline.js"></script>
+<script src="/carousel.js"></script>
 </body>
 </html>
