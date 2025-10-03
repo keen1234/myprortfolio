@@ -31,54 +31,32 @@ class ThreeDCarousel {
                 title: "Creative Portfolio Website",
                 subtitle: "Full-Stack Development",
                 description: "A modern, responsive portfolio showcasing my development skills and creative projects with interactive animations and smooth user experience.",
-                tags: ["React", "Node.js", "CSS3", "JavaScript"],
-                status: "Working",
-                link: "#"
+                tags: ["Api", "Native-HTML", "CSS3", "JavaScript"],
+                status: "Active",
+                link: "https://www.alejokenthcabanero.dev/"
             },
             {
                 id: 2,
-                brand: "E-COMMERCE",
-                imageTitle: "Online Store",
-                title: "Modern Shopping Platform",
-                subtitle: "React & Node.js",
-                description: "Feature-rich e-commerce platform with user authentication, payment integration, and real-time inventory management.",
-                tags: ["React", "MongoDB", "Stripe", "Express"],
+                brand: "Library system",
+                imageTitle: "Librows",
+                title: "Library Management System",
+                subtitle: "web application",
+                description: "This is a web application that helps manage library resources efficiently and let the user to reserve the book online.",
+                tags: ["Springboot Framework", "Mysql", "Java", "HTML", "CSS", "javaScript"],
                 status: "In Progress",
-                link: "#"
+                link: "https://github.com/keen1234/FinalProject"
             },
             {
                 id: 3,
-                brand: "ANALYTICS",
-                imageTitle: "Data Dashboard",
-                title: "Business Intelligence Tool",
-                subtitle: "Vue.js & Python",
-                description: "Comprehensive analytics dashboard for tracking business metrics with interactive charts and real-time data visualization.",
-                tags: ["Vue.js", "Python", "D3.js", "PostgreSQL"],
-                status: "Working",
-                link: "#"
-            },
-            {
-                id: 4,
                 brand: "MOBILE",
                 imageTitle: "Mobile App",
-                title: "Cross-Platform Mobile App",
-                subtitle: "React Native",
-                description: "Feature-rich mobile application with offline capabilities, push notifications, and seamless user experience across platforms.",
-                tags: ["React Native", "Firebase", "Redux", "TypeScript"],
+                title: "Wallet App",
+                subtitle: "Budgeting App",
+                description: "This is a mobile application that helps users manage their personal finances by tracking income, expenses, and savings goals in an intuitive and user-friendly interface.",
+                tags: ["Android Studio", "Java", "Kotlin", "XML"],
                 status: "In Progress",
-                link: "#"
+                link: "https://github.com/keen1234/WalletApp"
             },
-            {
-                id: 5,
-                brand: "BLOCKCHAIN",
-                imageTitle: "DeFi Platform",
-                title: "Decentralized Finance App",
-                subtitle: "Web3 Development",
-                description: "Revolutionary DeFi platform enabling secure cryptocurrency transactions and yield farming with smart contract integration.",
-                tags: ["Solidity", "Web3.js", "React", "Ethereum"],
-                status: "In Progress",
-                link: "#"
-            }
         ];
 
         this.init();
